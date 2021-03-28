@@ -1,0 +1,14 @@
+FROM php:7.4-apache
+
+#一時変数の定義
+ARG wdir
+# $wdir で使える
+
+# コマンドであれば
+# docker image build --build-arg wdir=/var/www/html .
+# Docker ファイル内であれば
+# ARG wdir="/var/www/html"
+
+WORKDIR $wdir
+
+COPY src/index.php /var/www/html/
