@@ -11,6 +11,7 @@ https://hub.docker.com/
 ENV:Docker内で使用する環境変数を定義。
 
 WORKDIR:Dockerfileでコマンドを実行する際に基準となるディレクトリを設定する。
+npm script とかを実行する時のディレクトリだと思う
 ここでは /var/www/html
 
 COPY:Docker内へホストのファイル/ディレクトリをコピーする。
@@ -20,10 +21,10 @@ Docker側は WORKDIR で定義されたディレクトリを参照する。
 
 USER:作成したDocker Image を起動時にログインするユーザーを指定。
 
-RUN:Docker内でコマンドを実行。
+RUN:Docker内でコマンドを実行。build時に実行。
 node をインストールするとか。
 
-CMD:Docker内でコマンドを実行。
+CMD:Docker内でコマンドを実行。コンテナ起動時。
 NPMのコマンドとか。
 
 ## docker imageを作る
@@ -42,3 +43,5 @@ pwd はカレントディレクトリを示している
 
 COPY を記述する（COPY src/index.php /var/www/html/）と以下のコマンドでもブラウザで確認できる。
 docker run --name learn02 -d --rm -p 8080:80 learn02/php:1.0
+
+--rm:終了（stop）時にコンテナを削除

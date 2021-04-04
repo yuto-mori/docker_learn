@@ -19,7 +19,7 @@ $ docker container run -it --rm php:7.4-apache /bin/bash
 root@*****:/# でbash シェルが起動（exit で抜けられる）
 ・オプション
 -it:対話モードで起動
--rm:終了時にコンテナを削除
+--rm:終了（stop）時にコンテナを削除
 
 すでにdockerが起動している時は以下コマンでbashを動かせるようになる（バックグランドモードでも可）。
 $ docker container exec -it learn01 /bin/bash
